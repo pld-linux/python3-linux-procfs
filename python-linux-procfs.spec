@@ -50,20 +50,15 @@ Linuksa.
 
 %build
 %if %{with python2}
-CC="%{__cc}" \
-CFLAGS="%{rpmcflags}" \
 %{__python} setup.py build --build-base build-2
 %endif
 
 %if %{with python3}
-CC="%{__cc}" \
-CFLAGS="%{rpmcflags}" \
 %{__python3} setup.py build --build-base build-3
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{_sbindir}
 
 %if %{with python2}
 %{__python} setup.py \
