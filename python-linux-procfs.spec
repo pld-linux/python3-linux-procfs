@@ -50,32 +50,24 @@ Linuksa.
 
 %build
 %if %{with python2}
-%{__python} setup.py build --build-base build-2
+%py_build
 %endif
 
 %if %{with python3}
-%{__python3} setup.py build --build-base build-3
+%py3_build
 %endif
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %if %{with python2}
-%{__python} setup.py \
-	build --build-base build-2 \
-	install --skip-build \
-		--root=$RPM_BUILD_ROOT \
-		--optimize=2
+%py_install
 
 %py_postclean
 %endif
 
 %if %{with python3}
-%{__python3} setup.py \
-	build --build-base build-3 \
-	install --skip-build \
-		--root=$RPM_BUILD_ROOT \
-		--optimize=2
+%py3_install
 %endif
 
 %clean
