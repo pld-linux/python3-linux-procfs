@@ -6,12 +6,12 @@
 Summary:	Linux /proc abstraction classes for Python 2
 Summary(pl.UTF-8):	Klasy abstrakcji linuksowego /proc dla Pythona 2
 Name:		python-linux-procfs
-Version:	0.4.10
-Release:	2
+Version:	0.4.11
+Release:	1
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	https://www.kernel.org/pub/software/libs/python/python-linux-procfs/%{name}-%{version}.tar.xz
-# Source0-md5:	561a3177990a8e530a1402b7fe177423
+# Source0-md5:	52eadc5edbb8869ce47a63926fe1351a
 URL:		https://rt.wiki.kernel.org/index.php/Tuna
 BuildRequires:	python-modules >= 2
 BuildRequires:	rpm-pythonprov
