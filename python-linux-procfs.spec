@@ -1,4 +1,7 @@
 #
+# TODO:
+# - verify where /usr/bin/pflags should go
+#
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
@@ -6,12 +9,12 @@
 Summary:	Linux /proc abstraction classes for Python 2
 Summary(pl.UTF-8):	Klasy abstrakcji linuksowego /proc dla Pythona 2
 Name:		python-linux-procfs
-Version:	0.4.11
+Version:	0.6
 Release:	1
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	https://www.kernel.org/pub/software/libs/python/python-linux-procfs/%{name}-%{version}.tar.xz
-# Source0-md5:	52eadc5edbb8869ce47a63926fe1351a
+# Source0-md5:	039761a2abc01d92429b9df4636344b0
 URL:		https://rt.wiki.kernel.org/index.php/Tuna
 BuildRequires:	python-modules >= 2
 BuildRequires:	rpm-pythonprov
@@ -79,14 +82,15 @@ rm -rf $RPM_BUILD_ROOT
 %{py_sitescriptdir}/procfs
 %if "%{py_ver}" > "2.4"
 #%{py_sitescriptdir}/python_linux_procfs-%{version}-py*.egg-info
-%{py_sitescriptdir}/python_linux_procfs-0.4.9-py*.egg-info
+%{py_sitescriptdir}/python_linux_procfs-0.6-py*.egg-info
 %endif
 %endif
 
 %if %{with python3}
 %files -n python3-linux-procfs
 %defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/pflags
 %{py3_sitescriptdir}/procfs
 #%{py3_sitescriptdir}/python_linux_procfs-%{version}-py*.egg-info
-%{py3_sitescriptdir}/python_linux_procfs-0.4.9-py*.egg-info
+%{py3_sitescriptdir}/python_linux_procfs-0.6-py*.egg-info
 %endif
