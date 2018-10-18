@@ -1,7 +1,4 @@
 #
-# TODO:
-# - verify where /usr/bin/pflags should go
-#
 # Conditional build:
 %bcond_without	python2 # CPython 2.x module
 %bcond_without	python3 # CPython 3.x module
@@ -79,10 +76,12 @@ rm -rf $RPM_BUILD_ROOT
 %if %{with python2}
 %files
 %defattr(644,root,root,755)
+%if %{without python3}
+%attr(755,root,root) %{_bindir}/pflags
+%endif
 %{py_sitescriptdir}/procfs
 %if "%{py_ver}" > "2.4"
-#%{py_sitescriptdir}/python_linux_procfs-%{version}-py*.egg-info
-%{py_sitescriptdir}/python_linux_procfs-0.6-py*.egg-info
+%{py_sitescriptdir}/python_linux_procfs-%{version}-py*.egg-info
 %endif
 %endif
 
@@ -91,6 +90,5 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/pflags
 %{py3_sitescriptdir}/procfs
-#%{py3_sitescriptdir}/python_linux_procfs-%{version}-py*.egg-info
-%{py3_sitescriptdir}/python_linux_procfs-0.6-py*.egg-info
+%{py3_sitescriptdir}/python_linux_procfs-%{version}-py*.egg-info
 %endif
