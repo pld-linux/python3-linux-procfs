@@ -7,7 +7,7 @@ Summary:	Linux /proc abstraction classes for Python 2
 Summary(pl.UTF-8):	Klasy abstrakcji linuksowego /proc dla Pythona 2
 Name:		python-linux-procfs
 Version:	0.6
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	https://www.kernel.org/pub/software/libs/python/python-linux-procfs/%{name}-%{version}.tar.xz
@@ -67,6 +67,8 @@ rm -rf $RPM_BUILD_ROOT
 %endif
 
 %if %{with python3}
+# Make sure python2 script is removed
+%{__rm} -f $RPM_BUILD_ROOT%{_bindir}/pflags
 %py3_install
 %endif
 
