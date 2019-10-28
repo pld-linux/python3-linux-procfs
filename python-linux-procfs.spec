@@ -13,12 +13,16 @@ Group:		Libraries/Python
 Source0:	https://www.kernel.org/pub/software/libs/python/python-linux-procfs/%{name}-%{version}.tar.xz
 # Source0-md5:	96f82184062ca76f393a00edce1fad5a
 URL:		https://rt.wiki.kernel.org/index.php/Tuna
+%if %{with python2}
 BuildRequires:	python-modules >= 2
-BuildRequires:	rpm-pythonprov
-BuildRequires:	rpmbuild(macros) >= 1.714
+BuildRequires:	python-setuptools
+%endif
 %if %{with python3}
 BuildRequires:	python3-modules >= 1:3.2
+BuildRequires:	python3-setuptools
 %endif
+BuildRequires:	rpm-pythonprov
+BuildRequires:	rpmbuild(macros) >= 1.714
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 BuildArch:	noarch
