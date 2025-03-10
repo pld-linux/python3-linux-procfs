@@ -2,7 +2,7 @@ Summary:	Linux /proc abstraction classes for Python 3
 Summary(pl.UTF-8):	Klasy abstrakcji linuksowego /proc dla Pythona 3
 Name:		python3-linux-procfs
 Version:	0.7.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Libraries/Python
 Source0:	https://www.kernel.org/pub/software/libs/python/python-linux-procfs/python-linux-procfs-%{version}.tar.xz
